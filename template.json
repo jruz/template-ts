@@ -1,0 +1,30 @@
+{
+  "merge": [
+    ".gitignore",
+    "github-settings.json",
+    "package.json",
+    "woodpecker-settings.yaml",
+    "justfile"
+  ],
+  "replace": [
+    ".envrc",
+    ".githooks/",
+    ".just/",
+    ".oxfmtrc.json",
+    ".oxlint/",
+    ".tools/",
+    ".woodpecker/",
+    "Dockerfile.node",
+    "LICENSE",
+    "flake.nix",
+    "renovate.json",
+    "scripts/lib/",
+    "scripts/sandbox.nu"
+  ],
+  "review": [
+    ".oxlintrc.json",
+    "knip.json",
+    "pnpm-workspace.yaml",
+    "tsconfig.json"
+  ]
+}

@@ -1,0 +1,6 @@
+.direnv/
+/node_modules/
+/tmp/*
+!/tmp/.gitkeep
+/PLAN.md
+result
