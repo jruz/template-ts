@@ -3,6 +3,7 @@ mod bun '.just/bun.justfile'
 mod tools '.just/tools.justfile'
 
 setup:
+    direnv allow
     just git-hooks
     just ts::install
 
