@@ -1,6 +1,6 @@
 mod ts '.just/ts.justfile'
 mod bun '.just/bun.justfile'
-mod tools '.just/tools.justfile'
+mod tools '.just/tools.just'
 
 setup:
     direnv allow

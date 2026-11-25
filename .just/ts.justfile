@@ -48,17 +48,7 @@ oxlint-fix:
     sandbox pnpm exec oxlint --config .oxlintrc.json --fix .
 
 oxlint-rules-test:
-    sandbox pnpm run oxlint-rules-test
-
-skill-check:
-    bun "$HOME/.pi/agent/skills/typescript/skill-check/main.ts"
-
-skill-pull:
-    bun "$HOME/.pi/agent/skills/typescript/skill-pull/main.ts"
-
-template-fix:
-    sandbox pnpm install --strict-peer-dependencies
-    just fix
+    sandbox node --test .oxlint/*.test.ts
 
 tsc-check:
     sandbox pnpm run tsc-check

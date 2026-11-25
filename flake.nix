@@ -27,8 +27,6 @@
         '';
         defaultPackages = with pkgs; [
           fd
-          gh
-          git
           just
           nushell
           ripgrep

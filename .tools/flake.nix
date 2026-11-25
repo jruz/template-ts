@@ -28,10 +28,7 @@
               nixfmt
               nu-lint
               nushell
-              oxfmt
-              renovate
               statix
-              taplo
               unstable.woodpecker-cli
             ])
             ++

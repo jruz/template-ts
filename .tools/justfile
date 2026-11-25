@@ -1,79 +1,17 @@
-set working-directory := '..'
+mod just 'just.just'
+mod nix 'nix.just'
+mod nushell 'nushell.just'
+mod woodpecker 'woodpecker.just'
+mod renovate 'renovate.just'
 
 check:
-    just --justfile .tools/justfile just-fmt-check
-    just --justfile .tools/justfile nix-check
-    just --justfile .tools/justfile nushell-check
-    just --justfile .tools/justfile woodpecker-check
-    just --justfile .tools/justfile renovate-check
+    just --justfile {{ justfile() }} just::check
+    just --justfile {{ justfile() }} nix::check
+    just --justfile {{ justfile() }} nushell::check
+    just --justfile {{ justfile() }} woodpecker::check
+    just --justfile {{ justfile() }} renovate::check
 
 fix:
-    just --justfile .tools/justfile just-fmt-fix
-    just --justfile .tools/justfile nix-fix
-    just --justfile .tools/justfile nushell-fix
-    just --justfile .tools/justfile oxfmt-fix
-    just --justfile .tools/justfile toml-fix
-
-just-fmt-check:
-    fd \
-        --hidden \
-        --type file \
-        --glob '*justfile' \
-        --exec just \
-        --justfile {} \
-        --unstable \
-        --fmt \
-        --check
-
-just-fmt-fix:
-    fd \
-        --hidden \
-        --type file \
-        --glob '*justfile' \
-        --exec just \
-        --justfile {} \
-        --unstable \
-        --fmt
-
-nix-check:
-    fd \
-        --hidden \
-        --extension nix \
-        --exec nixfmt --check
-    statix check .
-    deadnix --fail .
-
-nix-fix:
-    fd \
-        --hidden \
-        --extension nix \
-        --exec nixfmt
-    statix fix .
-    deadnix --edit .
-
-nushell-check:
-    fd \
-        --hidden \
-        --absolute-path \
-        --extension nu \
-        --exec nu --no-config-file \
-        --commands 'if not (nu-check --debug "{}") { exit 1 }'
-    nu-lint --config .tools/nu-lint.toml .
-
-nushell-fix:
-    nu-lint --config .tools/nu-lint.toml --fix .
-
-woodpecker-check:
-    woodpecker-cli lint .woodpecker/*.yml
-
-renovate-check:
-    renovate-config-validator --strict renovate.json
-
-oxfmt-fix:
-    oxfmt --write .
-
-toml-fix:
-    fd \
-        --hidden \
-        --extension toml \
-        --exec-batch taplo format
+    just --justfile {{ justfile() }} just::fix
+    just --justfile {{ justfile() }} nix::fix
+    just --justfile {{ justfile() }} nushell::fix
