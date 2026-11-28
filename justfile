@@ -1,5 +1,5 @@
-mod ts '.just/ts.justfile'
-mod bun '.just/bun.justfile'
+mod ts '.just/ts.just'
+mod bun '.just/bun.just'
 mod tools '.just/tools.just'
 
 setup:
