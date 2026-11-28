@@ -16,6 +16,7 @@
     ".woodpecker/",
     "Dockerfile.node",
     "LICENSE",
+    "flake.lock",
     "flake.nix",
     "renovate.json",
     "scripts/lib/",
